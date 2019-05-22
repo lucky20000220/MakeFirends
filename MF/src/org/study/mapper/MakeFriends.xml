@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="org.study.mapper.MakeFriends">
+ <!-- 登陆账号注册 -->
+ <insert id="addNewUser" parameterType="org.study.user.userList">
+ 		insert into User_login(User_accout,User_password) values(#{User_accout},#{User_password})
+ </insert>
+ 
+  <insert id="addNewUser2" parameterType="org.study.user.userHobby">
+ 		insert into User_information(User_name,User_sex,User_work,User_explain) values(#{User_name},#{User_sex},#{User_work},#{User_explain})
+ </insert>
+  <!-- 登陆账号登陆-->
+ <select id="findUser" parameterType="String" resultType="org.study.user.userList">
+		select * from User_login where User_accout=#{User_accout} and User_password=#{User_password}
+</select>
+
+ <select id="findUser2" parameterType="String" resultType="org.study.user.userHobby">
+		select * from User_information where User_name=#{User_name} 
+</select>
+ </mapper>
